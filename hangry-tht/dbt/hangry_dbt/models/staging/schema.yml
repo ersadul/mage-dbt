@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: stg_menus
+    description: "Staging table for menu items."
+    columns:
+      - name: menu_id
+        description: "Identifier for each menu item."
+        tests:
+          - not_null
+      - name: brand
+        description: "The brand associated with the menu item."
+        tests:
+          - not_null
+      - name: name
+        description: "Name of the menu item."
+        tests:
+          - not_null
+      - name: price
+        description: "Price of the menu item."
+        tests:
+          - not_null
+      - name: cogs
+        description: "Cost of goods sold for the menu item."
+        tests:
+          - not_null
+      - name: effective_date
+        description: "The date from which the price and COGS of the menu item are effective."
+        tests:
+          - not_null
+
+  - name: stg_orders
+    description: "Staging table for orders."
+    columns:
+      - name: order_id
+        description: "Identifier for each order."
+        tests:
+          - not_null
+      - name: menu_id
+        description: "Foreign key reference to the menu item ordered."
+        tests:
+          - not_null
+      - name: quantity
+        description: "Quantity of the menu item ordered."
+        tests:
+          - not_null
+      - name: sales_date
+        description: "Date the sale occurred."
+        tests:
+          - not_null
+
+  - name: stg_promotions
+    description: "Staging table for promotions."
+    columns:
+      - name: id
+        description: "Identifier for the promotion."
+        tests:
+          - not_null
+      - name: start_date
+        description: "Start date of the promotion."
+        tests:
+          - not_null
+      - name: end_date
+        description: "End date of the promotion."
+        tests:
+          - not_null
+      - name: disc_value
+        description: "Discount value as a percentage of the total price."
+        tests:
+          - not_null
+      - name: max_disc
+        description: "Maximum discount amount that can be applied during the promotion period."
+        tests:
+          - not_null

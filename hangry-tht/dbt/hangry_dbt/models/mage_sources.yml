@@ -1,0 +1,35 @@
+sources:
+- description: Dataframes Mage upstream blocks
+  loader: mage
+  name: mage_hangry_dbt
+  schema: staging
+  tables:
+  - description: Dataframe for block `load_menu_sheet` of the `sales_load_to_stg`
+      mage pipeline.
+    identifier: mage_sales_load_to_stg_load_menu_sheet
+    meta:
+      block_uuid: load_menu_sheet
+      pipeline_uuid: sales_load_to_stg
+    name: sales_load_to_stg_load_menu_sheet
+  - description: Dataframe for block `load_menu_sheet` of the `sales_pipeline` mage
+      pipeline.
+    identifier: mage_sales_pipeline_load_menu_sheet
+    meta:
+      block_uuid: load_menu_sheet
+      pipeline_uuid: sales_pipeline
+    name: sales_pipeline_load_menu_sheet
+  - description: Dataframe for block `load_promotion_csv_gcs` of the `sales_pipeline`
+      mage pipeline.
+    identifier: mage_sales_pipeline_load_promotion_csv_gcs
+    meta:
+      block_uuid: load_promotion_csv_gcs
+      pipeline_uuid: sales_pipeline
+    name: sales_pipeline_load_promotion_csv_gcs
+  - description: Dataframe for block `load_order_postgres` of the `sales_pipeline`
+      mage pipeline.
+    identifier: mage_sales_pipeline_load_order_postgres
+    meta:
+      block_uuid: load_order_postgres
+      pipeline_uuid: sales_pipeline
+    name: sales_pipeline_load_order_postgres
+version: 2

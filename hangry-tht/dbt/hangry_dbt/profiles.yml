@@ -1,0 +1,22 @@
+hangry_dbt:
+  target: dev
+
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: hangrytht-435208
+      dataset: staging
+      threads: 1 # Must be a value of 1 or greater
+      keyfile: /home/src/hangrytht-435208-4bc9a34a9c32.json
+      location: us-central1
+
+    prod:
+      type: bigquery
+      method: service-account
+      project: hangrytht-435208
+      dataset: prod
+      threads: 1 # Must be a value of 1 or greater
+      keyfile: /home/src/hangrytht-435208-4bc9a34a9c32.json
+      location: us-central1
+  

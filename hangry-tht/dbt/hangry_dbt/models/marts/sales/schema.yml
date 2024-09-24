@@ -1,0 +1,116 @@
+version: 2
+
+models:
+  - name: daily_sales
+    description: "Aggregated daily sales metrics for each menu item."
+    columns:
+      - name: name
+        description: "Name of the menu item."
+        tests:
+          - not_null
+
+      - name: brand
+        description: "Brand of the menu item."
+        tests:
+          - not_null
+
+      - name: date
+        description: "The date for which the sales metrics are aggregated."
+        tests:
+          - not_null
+
+      - name: daily_gross_revenue
+        description: "Total revenue from sales before discounts for the day."
+        tests:
+          - not_null
+
+      - name: daily_total_discount_applied
+        description: "Total discounts applied on sales for the day."
+        tests:
+          - not_null
+
+      - name: daily_cogs_total
+        description: "Total cost of goods sold (COGS) for the day."
+        tests:
+          - not_null
+
+      - name: daily_net_profit
+        description: "Net profit for the day, calculated as revenue minus COGS and discounts."
+        tests:
+          - not_null
+
+  - name: weekly_sales
+    description: "Aggregated weekly sales metrics for each menu item."
+    columns:
+      - name: name
+        description: "Name of the menu item."
+        tests:
+          - not_null
+
+      - name: brand
+        description: "Brand of the menu item."
+        tests:
+          - not_null
+
+      - name: date
+        description: "The end date of the week for which the sales metrics are aggregated."
+        tests:
+          - not_null
+
+      - name: weekly_gross_revenue
+        description: "Total revenue from sales before discounts for the week."
+        tests:
+          - not_null
+
+      - name: weekly_total_discount_applied
+        description: "Total discounts applied on sales for the week."
+        tests:
+          - not_null
+
+      - name: weekly_cogs_total
+        description: "Total cost of goods sold (COGS) for the week."
+        tests:
+          - not_null
+
+      - name: weekly_net_profit
+        description: "Net profit for the week, calculated as revenue minus COGS and discounts."
+        tests:
+          - not_null
+
+  - name: monthly_sales
+    description: "Aggregated monthly sales metrics for each menu item."
+    columns:
+      - name: name
+        description: "Name of the menu item."
+        tests:
+          - not_null
+
+      - name: brand
+        description: "Brand of the menu item."
+        tests:
+          - not_null
+
+      - name: date
+        description: "The end date of the month for which the sales metrics are aggregated."
+        tests:
+          - not_null
+
+      - name: monthly_gross_revenue
+        description: "Total revenue from sales before discounts for the month."
+        tests:
+          - not_null
+
+      - name: monthly_total_discount_applied
+        description: "Total discounts applied on sales for the month."
+        tests:
+          - not_null
+
+      - name: monthly_cogs_total
+        description: "Total cost of goods sold (COGS) for the month."
+        tests:
+          - not_null
+
+      - name: monthly_net_profit
+        description: "Net profit for the month, calculated as revenue minus COGS and discounts."
+        tests:
+          - not_null
