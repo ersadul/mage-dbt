@@ -36,6 +36,29 @@ blocks:
   uuid: load_promotion_csv_gcs
 - all_upstream_blocks_executed: true
   color: null
+  configuration:
+    dbt_project_name: dbt/hangry_dbt
+    file_path: dbt/hangry_dbt/models/intermediate/order/int_orders_fraud_filtered.sql
+    file_source:
+      path: dbt/hangry_dbt/models/intermediate/order/int_orders_fraud_filtered.sql
+      project_path: dbt/hangry_dbt
+    limit: 1000
+  downstream_blocks:
+  - dbt/hangry_dbt/models/marts/order/fct_orders
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/hangry_dbt/models/intermediate/order/int_orders_fraud_filtered
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/hangry_dbt/models/staging/stg_orders
+  uuid: dbt/hangry_dbt/models/intermediate/order/int_orders_fraud_filtered
+- all_upstream_blocks_executed: true
+  color: null
   configuration: {}
   downstream_blocks:
   - dbt/hangry_dbt/models/staging/stg_orders
@@ -67,7 +90,7 @@ blocks:
   language: sql
   name: dbt/hangry_dbt/models/staging/stg_menus
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: dbt
   upstream_blocks:
@@ -119,29 +142,6 @@ blocks:
   upstream_blocks:
   - load_order_postgres
   uuid: dbt/hangry_dbt/models/staging/stg_orders
-- all_upstream_blocks_executed: true
-  color: null
-  configuration:
-    dbt_project_name: dbt/hangry_dbt
-    file_path: dbt/hangry_dbt/models/intermediate/order/int_orders_fraud_filtered.sql
-    file_source:
-      path: dbt/hangry_dbt/models/intermediate/order/int_orders_fraud_filtered.sql
-      project_path: dbt/hangry_dbt
-    limit: 1000
-  downstream_blocks:
-  - dbt/hangry_dbt/models/marts/order/fct_orders
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: sql
-  name: dbt/hangry_dbt/models/intermediate/order/int_orders_fraud_filtered
-  retry_config: null
-  status: updated
-  timeout: null
-  type: dbt
-  upstream_blocks:
-  - dbt/hangry_dbt/models/staging/stg_orders
-  uuid: dbt/hangry_dbt/models/intermediate/order/int_orders_fraud_filtered
 - all_upstream_blocks_executed: false
   color: null
   configuration:
@@ -165,9 +165,9 @@ blocks:
   timeout: null
   type: dbt
   upstream_blocks:
-  - dbt/hangry_dbt/models/staging/stg_promotions
   - dbt/hangry_dbt/models/intermediate/order/int_orders_fraud_filtered
   - dbt/hangry_dbt/models/staging/stg_menus
+  - dbt/hangry_dbt/models/staging/stg_promotions
   uuid: dbt/hangry_dbt/models/marts/order/fct_orders
 - all_upstream_blocks_executed: false
   color: null
@@ -195,28 +195,6 @@ blocks:
   color: null
   configuration:
     dbt_project_name: dbt/hangry_dbt
-    file_path: dbt/hangry_dbt/models/marts/sales/monthly_sales.sql
-    file_source:
-      path: dbt/hangry_dbt/models/marts/sales/monthly_sales.sql
-      project_path: dbt/hangry_dbt
-    limit: 1000
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: sql
-  name: dbt/hangry_dbt/models/marts/sales/monthly_sales
-  retry_config: null
-  status: executed
-  timeout: null
-  type: dbt
-  upstream_blocks:
-  - dbt/hangry_dbt/models/marts/order/fct_orders
-  uuid: dbt/hangry_dbt/models/marts/sales/monthly_sales
-- all_upstream_blocks_executed: false
-  color: null
-  configuration:
-    dbt_project_name: dbt/hangry_dbt
     file_path: dbt/hangry_dbt/models/marts/sales/weekly_sales.sql
     file_source:
       path: dbt/hangry_dbt/models/marts/sales/weekly_sales.sql
@@ -235,6 +213,28 @@ blocks:
   upstream_blocks:
   - dbt/hangry_dbt/models/marts/order/fct_orders
   uuid: dbt/hangry_dbt/models/marts/sales/weekly_sales
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    dbt_project_name: dbt/hangry_dbt
+    file_path: dbt/hangry_dbt/models/marts/sales/monthly_sales.sql
+    file_source:
+      path: dbt/hangry_dbt/models/marts/sales/monthly_sales.sql
+      project_path: dbt/hangry_dbt
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/hangry_dbt/models/marts/sales/monthly_sales
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/hangry_dbt/models/marts/order/fct_orders
+  uuid: dbt/hangry_dbt/models/marts/sales/monthly_sales
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
